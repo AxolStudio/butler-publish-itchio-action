@@ -7,10 +7,8 @@ LABEL "com.github.actions.color"="white"
 
 RUN dnf install unzip -y
 
-ENV butler_ver=$BUTLER_VER
-
 # Install Butler
-RUN "curl -L -o butler.zip https://broth.itch.ovh/butler/$butler_ver/LATEST/archive/default" \
+RUN "curl -L -o butler.zip https://broth.itch.ovh/butler/${BUTLER_VER}/LATEST/archive/default" \
     && unzip butler.zip \
     && cp butler /usr/bin \
     && chmod +x /usr/bin/butler
