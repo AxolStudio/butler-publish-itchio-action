@@ -6,7 +6,7 @@ dnf install unzip -y
 curl -L -o butler.zip "https://broth.itch.ovh/butler/${BUTLER_VER}/LATEST/archive/default"
 unzip butler.zip
 
-chmod +x butler
+chmod +x butler*
 
 export BUTLER_API_KEY=$BUTLER_CREDENTIALS
 
