@@ -1,9 +1,30 @@
 name: "Butler Push"
 description: "Publish releases to Itch.io using Butler"
-author: josephbmanley
+author: SeiferTim
+inputs:
+  butler_credentials: 
+   description: "Your API Key from Itch.io"
+   required: true
+  channel:
+   description: "The Itch.io channel you want to push to"
+   required: true
+  itch_game:
+    description: "The short-name of the game you are pushing to"
+    required: true
+  itch_user:
+    description: "The Itch user name you are pushing to"
+    required: true
+  package:
+    description: "The local path of the files you want to push"
+    required: true
+  butler_ver:
+    description: "The name of the Butler version you need for your os"
+    required: true
 runs:
   using: docker
   image: Dockerfile
+  args:
+    - ${{ inputs.butler_ver }}
 branding:
   icon: upload
-  color: white
+  color: orange
