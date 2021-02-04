@@ -3,10 +3,11 @@ set -e
 
 dnf install unzip -y
 
-curl -L -o "butler.zip https://broth.itch.ovh/butler/${BUTLER_VER}/LATEST/archive/default" \
-    && unzip butler.zip \
-    && cp butler /usr/bin \
-    && chmod +x /usr/bin/butler
+curl -L -o butler.zip "https://broth.itch.ovh/butler/${BUTLER_VER}/LATEST/archive/default"
+unzip butler.zip
+
+chmod +x butler
+./butler -V
 
 export BUTLER_API_KEY=$BUTLER_CREDENTIALS
 
@@ -21,4 +22,4 @@ then
 fi
 
 echo "/usr/bin/butler push \"$PACKAGE\" $ITCH_USER/$ITCH_GAME:$CHANNEL ${versionArgument}"
-/usr/bin/butler push "$PACKAGE" $ITCH_USER/$ITCH_GAME:$CHANNEL ${versionArgument}
+./butler push "$PACKAGE" $ITCH_USER/$ITCH_GAME:$CHANNEL ${versionArgument}
