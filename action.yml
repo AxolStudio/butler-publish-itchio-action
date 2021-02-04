@@ -23,8 +23,14 @@ inputs:
 runs:
   using: docker
   image: Dockerfile
-  args:
-    - ${{ inputs.butler_ver }}
+  arg:
+    - BUTLER_VER=${{ inputs.butler_ver }}
+  env:
+    BUTLER_CREDENTIALS: ${{ inputs.butler_credentials }}
+    CHANNEL: ${{ inputs.channel }}
+    ITCH_GAME: ${{ inputs.itch_game }}
+    ITCH_USER: ${{ inputs.itch_user }}
+    PACKAGE: ${{ inputs.package }}
 branding:
   icon: upload
   color: orange
