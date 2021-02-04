@@ -10,8 +10,8 @@ LABEL "com.github.actions.color"="white"
 RUN dnf install unzip -y
 
 RUN echo "BUTLER_VER: $BUTLER_VER"
-RUN echo $BUILDOS
-RUN echo $1
+RUN echo "$BUILDOS"
+RUN echo "$1"
 
 # Install Butler
 RUN "curl -L -o butler.zip https://broth.itch.ovh/butler/${BUTLER_VER}/LATEST/archive/default" \
