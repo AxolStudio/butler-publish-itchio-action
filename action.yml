@@ -24,7 +24,7 @@ runs:
   using: docker
   image: Dockerfile
   args:
-    - BUTLER_VER=${{ inputs.butler_ver }}
+    - ${{ inputs.butler_ver }}
   env:
     BUTLER_CREDENTIALS: ${{ inputs.butler_credentials }}
     CHANNEL: ${{ inputs.channel }}
